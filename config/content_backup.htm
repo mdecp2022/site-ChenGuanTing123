@@ -6,32 +6,32 @@
 <h5>import random cp1a = "0747" url = "https://nfu.cycu.org/?semester=1111&amp;courseno=" + cp1a + "&amp;column=True" data = open(url).read().split("\n") stud = data[:-1] random.shuffle(stud) num = 5 for i in range(num): print(stud[i])<br/><br/></h5>
 <h2>W6</h2>
 <div class="container">
-<div class="line number1 index0 alt2"><code class="py keyword">from</code> <code class="py plain">browser </code><code class="py keyword">import</code> <code class="py plain">document, html</code></div>
-<div class="line number2 index1 alt1"><code class="py spaces"> </code> </div>
-<div class="line number3 index2 alt2"><code class="py plain">brython_div1 </code><code class="py keyword">=</code> <code class="py plain">document[</code><code class="py string">"brython_div1"</code><code class="py plain">]</code></div>
-<div class="line number4 index3 alt1"><code class="py comments">"""</code></div>
-<div class="line number5 index4 alt2"><code class="py comments">brython_div1 &lt;= html.BUTTON("hello")</code></div>
-<div class="line number6 index5 alt1"><code class="py comments">brython_div1 &lt;= html.BR()</code></div>
-<div class="line number7 index6 alt2"><code class="py comments">brython_div1 &lt;= html.A("google", href="https://google.com")</code></div>
-<div class="line number8 index7 alt1"><code class="py comments">"""</code></div>
-<div class="line number9 index8 alt2"><code class="py spaces">----------------------------------------------------------- </code> </div>
-<div class="line number10 index9 alt1"><code class="py plain">url </code><code class="py keyword">=</code> <code class="py string">"https://mde.tw/studlist/2022fall/1a.txt"</code></div>
-<div class="line number11 index10 alt2"><code class="py plain">data </code><code class="py keyword">=</code> <code class="py functions">open</code><code class="py plain">(url).read().split(</code><code class="py string">"\n"</code><code class="py plain">)</code></div>
-<div class="line number12 index11 alt1"><code class="py plain">mdecp2022 </code><code class="py keyword">=</code> <code class="py string">"https://mdecp2022.github.io/site-"</code></div>
-<div class="line number13 index12 alt2"><code class="py plain">data </code><code class="py keyword">=</code> <code class="py plain">data[</code><code class="py value">1</code><code class="py plain">:</code><code class="py keyword">-</code><code class="py value">1</code><code class="py plain">]</code></div>
-<div class="line number14 index13 alt1"><code class="py keyword">for</code> <code class="py plain">i </code><code class="py keyword">in</code> <code class="py plain">data:</code></div>
-<div class="line number15 index14 alt2"><code class="py spaces">    </code><code class="py plain">stud </code><code class="py keyword">=</code> <code class="py plain">i.split(</code><code class="py string">"\t"</code><code class="py plain">)</code></div>
-<div class="line number16 index15 alt1"><code class="py spaces">    </code><code class="py plain">stud_num </code><code class="py keyword">=</code> <code class="py plain">stud[</code><code class="py value">0</code><code class="py plain">]</code></div>
-<div class="line number17 index16 alt2"><code class="py spaces">    </code><code class="py plain">github_acc </code><code class="py keyword">=</code> <code class="py plain">stud[</code><code class="py value">1</code><code class="py plain">]</code></div>
-<div class="line number18 index17 alt1"><code class="py spaces">    </code><code class="py comments">#print(stud_num, github_acc)</code></div>
-<div class="line number19 index18 alt2"><code class="py spaces">    </code><code class="py keyword">if</code> <code class="py plain">github_acc </code><code class="py keyword">=</code><code class="py keyword">=</code> <code class="py plain">"":</code></div>
-<div class="line number20 index19 alt1"><code class="py spaces">        </code><code class="py plain">github_acc </code><code class="py keyword">=</code> <code class="py plain">stud_num</code></div>
-<div class="line number21 index20 alt2"><code class="py spaces">    </code><code class="py plain">site </code><code class="py keyword">=</code> <code class="py plain">mdecp2022 </code><code class="py keyword">+</code> <code class="py plain">github_acc</code></div>
-<div class="line number22 index21 alt1"><code class="py spaces">    </code><code class="py plain">link </code><code class="py keyword">=</code> <code class="py plain">html.A(stud_num, href</code><code class="py keyword">=</code><code class="py plain">site)</code></div>
-<div class="line number23 index22 alt2"><code class="py spaces">    </code><code class="py plain">brython_div1 &lt;</code><code class="py keyword">=</code> <code class="py plain">link</code></div>
-<div class="line number24 index23 alt1"><code class="py spaces">    </code><code class="py plain">brython_div1 &lt;</code><code class="py keyword">=</code> <code class="py plain">html.BR()</code></div>
-</div>
-<h2>W10</h2>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import document, html
+  
+brython_div1 = document["brython_div1"]
+"""
+brython_div1 &lt;= html.BUTTON("hello")
+brython_div1 &lt;= html.BR()
+brython_div1 &lt;= html.A("google", href="https://google.com")
+"""</pre>
+<br/><br/>
+<div class="line number9 index8 alt2"><code class="py spaces">----------------------------------------------------------- </code></div>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">url = "https://mde.tw/studlist/2022fall/1a.txt"
+data = open(url).read().split("\n")
+mdecp2022 = "https://mdecp2022.github.io/site-"
+data = data[1:-1]
+for i in data:
+    stud = i.split("\t")
+    stud_num = stud[0]
+    github_acc = stud[1]
+    #print(stud_num, github_acc)
+    if github_acc == "":
+        github_acc = stud_num
+    site = mdecp2022 + github_acc
+    link = html.A(stud_num, href=site)
+    brython_div1 &lt;= link
+    brython_div1 &lt;= html.BR()</pre>
+<br/><br/></div><h2>W10</h2>
 <p>計數器(迴圈for運用)【1.3.5.7.9】</p>
 <p><a href="https://mdecp2022.github.io/site-ChenGuanTing123/content/Brython.html?src=https://gist.githubusercontent.com/41123130/39b124d5820d3e3f99b140b19396503f/raw/119a281d7fcdafe4340907d507b9c31187e46d87/w10%25E8%25A8%2588%25E6%2595%25B8%25E5%2599%25A8">ex1</a></p>
 <p>(起始點，終點，間距)</p>
@@ -41,7 +41,7 @@
 <p>sum=1+3+5+7+9</p>
 <p>print(sum)</p>
 <p></p><h2>W13</h2>
-<p>溫度轉換器(攝氏轉華氏)</p>
+<p>溫度轉換器(攝氏-華氏)</p>
 <p><a href="https://mdecp2022.github.io/site-ChenGuanTing123/content/Brython.html?src=https://gist.githubusercontent.com/41123130/3f74d0b23683c9b7e20c51f3a59a684c/raw/7328f64a28a215d96fe5baf866e7581ac8e0e6bc/w13_temp_ex1.py">ex1</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">'''
 f = c*9/5 + 32
@@ -51,6 +51,8 @@ c = input("請輸入攝氏溫度")
 #print(type(c))
 c = float(c)
 print("你輸入的攝氏溫度為:"+str(c),"等於華氏溫度:" +str(c*9/5+32))</pre>
+<p>長度轉換器(公分-英吋)</p>
+<p>ex1</p>
 <div class="container">
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">'''
 f = c*2.54
